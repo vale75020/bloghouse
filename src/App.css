@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+
+.nav-link {
+  color: white
+}
+
+body {
+  width: 70%;
+  margin: auto;
+}
+
+input{
+  margin: 20px auto;
+}
+
+textarea{
+  margin-bottom: 20px
+}
