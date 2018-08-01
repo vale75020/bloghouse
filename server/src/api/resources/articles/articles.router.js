@@ -12,9 +12,9 @@ articleRouter.route('/')
   .get(articlesController.findAll)
 
 articleRouter.route('/add')
-  .post(articlesController.create)
+  .post(adminPolicy, articlesController.create)
 
 articleRouter.route('/:id')
   .get(articlesController.findOne)
-  .put(articlesController.update)
-  .delete(articlesController.delete)
+  .put(adminPolicy, articlesController.update)
+  .delete(adminPolicy, articlesController.delete)

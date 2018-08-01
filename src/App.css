@@ -19,3 +19,20 @@ input{
 textarea{
   margin-bottom: 20px
 }
+
+.cont{
+  display: flex;
+  flex-wrap: wrap
+}
+
+.card{
+  margin:20px
+}
+
+.card-text {
+  text-overflow: ellipsis;
+ 
+  /* Required for text-overflow to do anything */
+  white-space: nowrap;
+  overflow: hidden;
+ }

@@ -5,7 +5,7 @@ import {isAdmin} from '../../middlewares/admin'
 
 export const userRouter = express.Router();
 
-const adminPolicy = [passport.authenticate('jwt', {session:false}), isAdmin]
+const adminPolicy = [passport.authenticate('jwt', {session:false})]
 
 userRouter.post("/signup", userController.signup);
 userRouter.post("/login", userController.login);

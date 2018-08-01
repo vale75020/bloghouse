@@ -7,6 +7,11 @@ import Login from './Login'
 import ArticleForm from './ArticleForm'
 import Articles from './Articles'
 
+import setAuthToken from "./axios-default"
+
+if(localStorage.jwtToken) {
+  setAuthToken(localStorage.jwtToken)
+}
 
 class App extends Component {
   render() {

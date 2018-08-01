@@ -244,7 +244,7 @@ exports.isAdmin = undefined;
 var _user = __webpack_require__(12);
 
 var isAdmin = exports.isAdmin = function isAdmin(req, res, next) {
-    if (req.user.role !== _user.ADMIN) {
+    if (req.user.role !== 2) {
         return res.json({ err: 'unauthorized, not an admin' });
     }
 };
@@ -900,9 +900,9 @@ var adminPolicy = [_passport2.default.authenticate('jwt', { session: false }), _
 
 articleRouter.route('/').get(_articles2.default.findAll);
 
-articleRouter.route('/add').post(_articles2.default.create);
+articleRouter.route('/add').post(adminPolicy, _articles2.default.create);
 
-articleRouter.route('/:id').get(_articles2.default.findOne).put(_articles2.default.update).delete(_articles2.default.delete);
+articleRouter.route('/:id').get(_articles2.default.findOne).put(adminPolicy, _articles2.default.update).delete(adminPolicy, _articles2.default.delete);
 
 /***/ }),
 /* 29 */
@@ -2118,7 +2118,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var userRouter = exports.userRouter = _express2.default.Router();
 
-var adminPolicy = [_passport2.default.authenticate('jwt', { session: false }), _admin.isAdmin];
+var adminPolicy = [_passport2.default.authenticate('jwt', { session: false })];
 
 userRouter.post("/signup", _user2.default.signup);
 userRouter.post("/login", _user2.default.login);
